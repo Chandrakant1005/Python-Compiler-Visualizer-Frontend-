@@ -45,7 +45,7 @@ print(f"Fibonacci of 10 is: {result}")`);
     setAnalysis(null);
 
     try {
-      const response = await fetch('/analyze', {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000'}/analyze`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ print(f"Fibonacci of 10 is: {result}")`);
 
   const loadExamples = async () => {
     try {
-      const response = await fetch('/examples');
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000'}/examples`);
       const examples = await response.json();
       return examples;
     } catch (err) {
